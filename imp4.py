@@ -30,7 +30,7 @@ patience_counter = 0
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 # Load and preprocess data
-with open('Harry_Potter.txt', 'r', encoding='utf-8') as f:
+with open('qna_dataset.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 # Create character level tokenization

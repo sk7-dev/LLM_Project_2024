@@ -6,13 +6,13 @@ batch_size = 64
 block_size = 256  
 max_iters = 5000
 eval_interval = 500
-learning_rate = 1e-4 #decrease learning rate - improvement_iteration_1
+learning_rate = 1e-4  
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 eval_iters = 200
 n_embd = 384
 n_head = 6
 n_layer = 6
-dropout = 0.1 #increase dropout value - improvement_iteration_2
+dropout = 0.3  
 
 
  
@@ -196,9 +196,9 @@ m = model.to(device)
 print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
 
 # create a PyTorch optimizer
-optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-2) #improvement_iteration_1
+optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-2)  
 
-scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.5, patience=10) #improvement_iteration_2
+scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.5, patience=10)  
 
 for iter in range(max_iters):
 

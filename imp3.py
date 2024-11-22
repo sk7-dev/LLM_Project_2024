@@ -5,7 +5,7 @@ import math
 
 batch_size = 48  # Reduced batch size to prevent GPU overload
 block_size = 256
-max_iters = 5000  # Increased for better convergence
+max_iters = 4500  # Increased for better convergence
 eval_interval = 500
 learning_rate = 3e-4  # Increased slightly for faster initial learning
 warmup_iters = 2000  # Longer warmup period
@@ -18,7 +18,7 @@ n_layer = 8  # Increased number of layers
 dropout = 0.2  # Increased dropout for better regularization
 gradient_clip = 1.0 
 
-with open('Harry_Potter.txt', 'r', encoding='utf-8') as f:
+with open('harry_potter_dataset.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 # here are all the unique characters that occur in this text
@@ -197,7 +197,7 @@ class GPTLanguageModel(nn.Module):
 
         return logits, loss
 
-    def generate(self, idx, max_new_tokens, temperature=0.8, top_k=40):
+    def generate(self, idx, max_new_tokens, temperature=1.0, top_k=40):
         for _ in range(max_new_tokens):
             idx_cond = idx[:, -block_size:]
             logits, _ = self(idx_cond)
@@ -252,4 +252,8 @@ for iter in range(max_iters):
 
 # Generate sample text
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
+#print(decode(m.generate(context, max_new_tokens=1000)[0].tolist()))
+generated_text = decode(m.generate(context, max_new_tokens=1000)[0].tolist())
+print("\n")
+print(generated_text)
+ 
