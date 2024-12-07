@@ -3,7 +3,7 @@ import torch.nn as nn
 from torch.nn import functional as F
 import math
 
-# Model hyperparameters
+# Model hyperparameters 
 n_embd = 256      # Reduced embedding dimension
 n_head = 6        # Reduced number of heads
 n_layer = 6       # Reduced number of layers
