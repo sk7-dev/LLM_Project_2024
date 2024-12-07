@@ -1,14 +1,13 @@
-**Transformer-Based Language Model**
+# Transformer-Based Language Model
 
-**Project Overview**
+## Overview
+This project implements a transformer-based language model with iterative improvements to reduce overfitting, optimize training, and improve generalization. By leveraging advanced deep learning techniques, the model achieves substantial gains in prediction accuracy and stability across datasets.
 
-This project focuses on building a transformer-based language model using various datasets to achieve effective text prediction and generation. The model's development involves key milestones, continuous improvements, and detailed analysis of results to address challenges such as overfitting, computational requirements, and hyperparameter optimization.
+---
 
-**Features**
-
-- Implementation of a GPT-style transformer model.
-- Multi-dataset support including:
-
+## Features
+- **Multi-dataset Support**:
+  
       Shakespeare Dataset (1,115,394 characters)
   
       QnA Dataset (31,985,086 characters)
@@ -16,39 +15,48 @@ This project focuses on building a transformer-based language model using variou
       Ponniyin Selvan Dataset (1,661,635 characters)
   
       Harry Potter Dataset (683,693 characters)
-- Support for training loop with tokenization, backpropagation, gradient clipping, and loss evaluation.
-- Iterative improvements including dropout, learning rate scheduling, and weight decay.
-- Addressing challenges like overfitting through enhanced training strategies.
-
-**Improvements**
-
-**Improvement 1**
-- Decreased learning rate to 1e-4.
-- Increased dropout to 0.3.
-- Included weight decay of 1e-2.
-
-**Improvement 2**
-- Decreased dropout to 0.1.
--bAdded learning rate scheduling.
-- Enhanced generation parameters for better text quality.
   
-**Improvement 3**
-- Tuned hyperparameters.
-- Added embedding dropout.
-- Optimized learning rate scheduler and initialization weights.
+- **Transformer Architecture**: Implements GPT-based attention mechanisms with self-attention, feed-forward layers, layer normalization, and dropout.
+- **Iterative Improvements**: Refines the model through multiple milestones to address overfitting and enhance learning capacity.
 
-**Key Observations**
+---
 
-**Improvement 1:**
-- Focused on stabilizing the model and reducing overfitting using dropout and weight decay.
-- Delivered moderate improvements in validation performance across all steps.
-  
-**Improvement 2:**
-- Aggressively reduced overfitting using lower dropout and learning rate scheduling.
-- Brought consistent improvement in validation loss while maintaining competitive training loss.
-  
-**Improvement 3:**
-- Tuned hyperparameters further and introduced embedding dropout.
-- Achieved the best validation loss reduction, highlighting significant generalization improvements.
+## Improvements and Results
+### Improvement 1
+- **Changes**: Introduced weight decay, dropout, and decreased learning rate.
+- **Impact**: 
+  - **Training Loss**: Decreased by **up to 61%** at Step 4999.
+  - **Validation Loss**: Decreased by **up to 18%**, reducing overfitting.
 
+### Improvement 2
+- **Changes**: Added learning rate scheduling and adjusted dropout.
+- **Impact**: 
+  - Enhanced consistency in loss reduction.
+  - Improved training loss by **10.8%** and validation loss by **13.4%** at Step 4999.
 
+### Improvement 3
+- **Changes**: Tuned hyperparameters, introduced embedding dropout, and enhanced initialization weights.
+- **Impact**:
+  - **Training Loss**: Reduced by **up to 77%**.
+  - **Validation Loss**: Reduced by **up to 34%**, achieving the best generalization.
+
+---
+
+## Results Summary
+| **Model**         | **Training Loss Reduction** | **Validation Loss Reduction** |
+|--------------------|-----------------------------|---------------------------------|
+| **Improvement 1** | Up to 61.16%               | Up to 18.21%                  |
+| **Improvement 2** | Up to 10.82%               | Up to 13.41%                  |
+| **Improvement 3** | Up to 77.77%               | Up to 34.28%                  |
+
+---
+
+## Future Directions:
+- Implement multilingual support.
+- Further optimize computational efficiency for real-time deployment.
+- Explore alternative datasets and evaluation metrics for broader generalization.
+
+---
+
+## Contributors: 
+Laura, Shiv, Heather, Goutam, Drishtee, Sarah
